@@ -7,11 +7,13 @@ package ordenacionarrays;
  
 public class MyQuickSort {
      
+    //Inicializa un array para hacer este QuickSort y toma su length
     private int array[];
     private int length;
  
     public void sort(int[] inputArr) {
          
+        //Si no tiene nada, sale
         if (inputArr == null || inputArr.length == 0) {
             return;
         }
@@ -54,12 +56,14 @@ public class MyQuickSort {
             quickSort(i, higherIndex);
     }
  
+    //Para hacer el swap en el array principal
     private void exchangeNumbers(int i, int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
      
+    //Prueba del método de ordenación
     public static void main(String a[]){
          
         MyQuickSort sorter = new MyQuickSort();

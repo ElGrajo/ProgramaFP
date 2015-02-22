@@ -31,7 +31,8 @@ public class Ej3OrdenacionArrays {
      }
      
      public static void OrdenadorQuick( int numeros[], String palabras[]){
-       
+     
+         
      
      }    
 }
