@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Palindromos {
     public static void main(String[] args) throws FileNotFoundException{
-     String archivo = "C:\\Users\\DAM1\\Documents\\FP\\6. Programacion\\NetBeansProjects\\Strings\\src\\strings\\palindromos.txt";
+     String archivo = "C:\\proyects\\Strings\\src\\strings\\palindromos.txt";
      Scanner sc = new Scanner(new File(archivo));
      StringBuilder linea = new StringBuilder();
      

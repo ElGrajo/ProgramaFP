@@ -26,15 +26,15 @@ public class MyQuickSort {
          
         int i = lowerIndex;
         int j = higherIndex;
-        // calculate pivot number, I am taking pivot as middle index number
+        // para calcular el valor pivote, toma los elementos del medio.
         int pivot = array[lowerIndex+(higherIndex-lowerIndex)/2];
         // Divide into two arrays
         while (i <= j) {
             /**
-             * In each iteration, we will identify a number from left side which 
-             * is greater then the pivot value, and also we will identify a number 
-             * from right side which is less then the pivot value. Once the search 
-             * is done, then we exchange both numbers.
+             * En cada iteracion identificaremos un numero de la izquierda que es
+             * más grande que el valor pivote, y también identificaremos un numero
+             * de la derecha que es menor que el valor pivote. Una vez realizado esto
+             * cambiamos ambos números.
              */
             while (array[i] < pivot) {
                 i++;
