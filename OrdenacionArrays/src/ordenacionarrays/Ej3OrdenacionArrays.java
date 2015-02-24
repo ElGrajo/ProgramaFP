@@ -27,7 +27,12 @@ public class Ej3OrdenacionArrays {
          
          for (int i = 0; i < sueldos.length; i++) {
             System.out.printf("%s gana %d\n", nombres[i], sueldos[i]);
-         }         
+         }
+         
+         prueba.ordenaQuick(nombres, sueldos);
+         for (int i = 0; i < sueldos.length; i++) {
+            System.out.printf("%s gana %d\n", nombres[i], sueldos[i]);
+         }
      }
      
     //Código tomado del MyQuickSort y adaptado 
@@ -96,4 +101,60 @@ public class Ej3OrdenacionArrays {
         arraySecundario[i] = arraySecundario[j];
         arraySecundario[j] = auxiliar;
     }
+    
+    
+  
+       //QuickSort
+     //Inicializa un array para hacer este QuickSort y toma su length
+    private String array[];
+    private int array2[];
+ 
+    public void ordenaQuick(String [] arraySecunEntrada, int[] arrayDeEntrada) {
+         
+        //Si no tiene nada, sale
+        if (arraySecunEntrada == null || arraySecunEntrada.length == 0) {
+            return;
+        }
+        this.array = arraySecunEntrada;
+        this.arrayPrincipal = arrayDeEntrada;
+        this.arraySecundario = arraySecunEntrada;
+        length = arraySecunEntrada.length;//Le pone el valor a length
+        quickSort1(0, length - 1);//Le el tamaño del array completo
+    }
+ 
+    private void quickSort1(int lowerIndex, int higherIndex) {
+         
+        int i = lowerIndex;
+        int j = higherIndex;
+        // para calcular el valor pivote, toma los elementos del medio.
+        String pivot = array[lowerIndex+(higherIndex-lowerIndex)/2];
+        // Divide into two arrays
+        while (i <= j) {
+            /**
+             * En cada iteracion identificaremos un numero de la izquierda que es
+             * más grande que el valor pivote, y también identificaremos un numero
+             * de la derecha que es menor que el valor pivote. Una vez realizado esto
+             * cambiamos ambos números.
+             */
+            //array[i] < pivot //array[j] > pivot
+            while (array[i].compareTo(pivot)< 0) {
+                i++;
+            }
+            while (pivot.compareTo(array[j])< 0) {
+                j--;
+            }
+            if (i <= j) {
+                intercambiaLugares(i, j);
+                //move index to next position on both sides
+                i++;
+                j--;
+            }
+        }
+        // call quickSort() method recursively
+        if (lowerIndex < j)
+            quickSort1(lowerIndex, j);
+        if (i < higherIndex)
+            quickSort1(i, higherIndex);
+    }
+     
 }
