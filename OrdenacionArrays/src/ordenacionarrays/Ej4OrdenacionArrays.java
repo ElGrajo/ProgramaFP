@@ -8,17 +8,11 @@ package ordenacionarrays;
 
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.nanoTime;
 import java.util.Scanner;
 
-/**
- *
- * @author DAM1
- */
 public class Ej4OrdenacionArrays {
     public static void main(String args[]) throws IOException{
-        String archivo = "C:\\0proyects\\OrdenacionArrays\\src\\"
-                + "ordenacionarrays\\Ej4OrdenacionArrays.txt" ;
+        String archivo = "src\\ordenacionarrays\\Ej4OrdenacionArrays.txt" ;
         Scanner entrada = new Scanner(new File(archivo));
         int superContador = 0;
         //Hay dos while porque no sé como dimensionar el array inicial
@@ -46,22 +40,74 @@ public class Ej4OrdenacionArrays {
             contadorDatos++;
         }
         
-        //Usando el ordenador desde la clase anterior.
+        //Usando el "Sort" desde la clase anterior.
         Ej3OrdenacionArrays prueba = new Ej3OrdenacionArrays();
-          prueba.ordenar(arrayNumeros,arrayNombres);
-          
         
-        for (int i = 0; i < arrayNombres.length; i++) {
-            System.out.printf("%d %s\n", arrayNumeros[i], arrayNombres[i]);
-        }
-        
-        System.out.println("---------------------------");
-        
-        prueba.ordenaQuick(arrayNombres, arrayNumeros);
-        for (int i = 0; i < arrayNombres.length; i++) {
-            System.out.printf("%s %d\n", arrayNombres[i], arrayNumeros[i]);
-        }
-        
+        Scanner entradaDatos = new Scanner(System.in);
+        System.out.println("Ingrese el elemento a buscar:");
+        String paraBuscar = entradaDatos.nextLine();
+ 
+         //Despues de tomar el dato, intenta transformarlo en numero.
+        int miNumero = 0;
+         try
+         {
+           miNumero = Integer.parseInt(paraBuscar);
+         }
+         catch(NumberFormatException exception)
+         {
+           //No es un numero, entonces intenta buscar el nombre
+            prueba.ordenaQuick(arrayNombres, arrayNumeros);
+           //busqueda de nombre
+            int lugar = buscar(paraBuscar, arrayNombres);
+            if(lugar > -1)
+                 System.out.printf("%s %d", arrayNombres[lugar], arrayNumeros[lugar]);
+            else
+                 System.out.println("No hay numero para " + paraBuscar);       
+            return;
+         }
+                
+        //Ordena por telefono, porque es un numero! si no hubiera salido en el catch
+        prueba.ordenar(arrayNumeros,arrayNombres);
+            int lugar = buscar(miNumero, arrayNumeros);
+            if(lugar > -1)
+                 System.out.printf("%s %d", arrayNombres[lugar], arrayNumeros[lugar]);
+            else
+                 System.out.println("No hay nombre para " + miNumero);
+    }
+    
+    //Devuelve la posición del array que coincide ó -1 si no está
+    public static int buscar(String dato, String coleccion[]){
+        int menor = 0;
+	int mayor = coleccion.length - 1;
+	while(mayor >= menor){
+	    int medio = (menor + mayor) / 2;
+            int comparacion = dato.compareTo(coleccion[medio]);
+            if(comparacion < 0){ 
+                mayor = medio - 1;
+            } else if(comparacion == 0){
+		return medio;
+            } else {
+                menor = medio + 1;
+            }
+	}
+        return (-menor - 1);
+    } // fin buscaPalabra
+
+    public static int buscar(int dato, int coleccion[]){
+    	int menor = 0;
+	int mayor = coleccion.length - 1;
+	while(mayor >= menor){
+		int medio = (menor + mayor) / 2;
+		if(dato < coleccion[medio]){
+			mayor = medio - 1;
+		} else if(dato == coleccion[medio]){
+			return medio;
+		} else {
+		   menor = medio + 1;
+		}
+	}
+        return (-menor - 1);
+ 
         
     }
 }
