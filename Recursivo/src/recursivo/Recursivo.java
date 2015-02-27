@@ -17,6 +17,11 @@ import java.util.Scanner;
  */
 public class Recursivo {
 
+    public static void main(String[] args) {
+        //System.out.println(factorial1(pedirDatos()));
+        metodoX2(123456);
+    }
+    
     public static int pedirDatos(){
         Scanner entrada = new Scanner(System.in);
                 
@@ -32,8 +37,26 @@ public class Recursivo {
               return n * factorial(n - 1); // caso recursivo
             }
     }
-    public static void main(String[] args) {
-        System.out.println(factorial(pedirDatos()));
+    
+    //si no hay un caso de salida, y cada paso no nos acerca, la pila desborda
+    public static int factorial1(int n){
+
+              return n * factorial1(n - 1); // caso recursivo
+            
     }
     
+  public static int metodoX(int n){
+      if(n ==1)
+          return 1;
+      else
+          return n + metodoX(n - 1);
+  }
+  
+  //En este caso el método se saca por descarte, porque no hay un else.
+  public static void metodoX2(int n){
+      if (n>0){
+          System.out.println(n%10);
+          metodoX2(n/10);
+      }
+  }
 }
