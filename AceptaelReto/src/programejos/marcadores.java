@@ -3,16 +3,26 @@
  */
 package programejos;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Julian
  */
 public class marcadores {
     public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int dato = 0;
+        dato = sc.nextInt();
+        while(dato > 0){
+          ArrayList<Integer> nombreArrayList = new ArrayList<Integer>();
         System.out.println(compara(1,2));
         System.out.println(compara(8,9));
         System.out.println(compara(1,9));
-    
+        
+        dato = sc.nextInt();
+        }
     }
     //Recibe lo
     public static int compara(int numero1, int numero2){
