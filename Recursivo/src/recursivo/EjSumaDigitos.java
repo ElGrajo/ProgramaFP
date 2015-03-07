@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package recursivo;
 
 import java.util.Scanner;
@@ -15,15 +10,15 @@ public class EjSumaDigitos {
     public static void main(String args[]){
         
         Scanner sc = new Scanner(System.in);
-        int numero = sc.nextInt();
+        long numero = sc.nextLong();
         while(numero != 0){
         String respuesta = numeritos(numero)+ SumaDigitos(numero);
         System.out.println(respuesta);
-        numero = sc.nextInt();
+        numero = sc.nextLong();
         }
     }
     
-    public static int SumaDigitos(int numero){
+    public static long SumaDigitos(long numero){
         if(numero<0)
             return -1;
         if(numero<10){
@@ -33,14 +28,29 @@ public class EjSumaDigitos {
         }
     }
     
-    public static String numeritos(int numero){
-
+    //Metodo sobreCargado, que utiliza el que tiene recursividad.
+    public static String numeritos(long numero){
+        String miNumero = Long.toString(numero);
+        return numeritos(miNumero, 0);
+    }
+    
+    public static String numeritos(String numeroString, int inicio){
+        
+        //caso Base
+        if(inicio >= numeroString.length()-1){
+            return numeroString.charAt(inicio) + " = ";
+        //caso recursivo, que le suma un lugar a inicio
+        } else {
+            return numeroString.charAt(inicio) + " + " + numeritos(numeroString, inicio + 1);
+        }
+        
+        /*
         String miNumero = Integer.toString(numero);
         String respuesta = miNumero.charAt(0) + " + ";         
         for (int i = 1; i < miNumero.length()-1; i++) {
             respuesta = respuesta + miNumero.charAt(i) + " + ";
         }
         respuesta = respuesta + miNumero.charAt(miNumero.length()-1) + " = ";
-        return respuesta;
+        return respuesta;*/
     }
 }

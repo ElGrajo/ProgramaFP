@@ -62,7 +62,6 @@ public class pesoBalanza {
                 return pesoDer + pesoIzq;
             else
                 return -1;
-        
             }
     }
 }
