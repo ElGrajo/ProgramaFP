@@ -6,10 +6,33 @@ aquellos alumnos cuyo promedio está por  encima de 14 ptos.
  */
 package ficherosjava;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 /**
  *
  * @author DAM1
  */
 public class Ej4NombrePromedio {
-    
+    public static void main(String[] args) throws FileNotFoundException{
+        File archivo = new File("src/ficherosjava/notas.txt");
+        Scanner sc = new Scanner(archivo);
+         PrintWriter salida = new PrintWriter("src/ficherosjava/promedios.txt");
+        
+        while(sc.hasNext()){
+            String DNI = sc.next();
+            String nombre = sc.next();
+            String apellido = sc.next();
+            int nota1 = sc.nextInt();
+            int nota2 = sc.nextInt();
+            int nota3 = sc.nextInt();
+            double promedio = ((nota1 + nota2 +nota3)/ 3);
+            if(promedio >= 14 ){
+                salida.println(DNI + " " + promedio );
+            }
+        }
+        salida.close();
+    }
 }
