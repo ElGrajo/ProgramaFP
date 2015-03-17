@@ -53,21 +53,19 @@ public class Reto213TicketTempo {
 
     public static void main(String args[]){
     Scanner sc = new Scanner(System.in);
-    int temporada = sc.nextInt();    
-    int periodo = sc.nextInt();
-    int dias = sc.nextInt();
-    while(!((dias == 0)&&(periodo==0)&&(temporada==0))){
-        if((dias==0)||(periodo==0)){
-            System.out.println(0);           
-        }else{            
-        int sobran = temporada % periodo;
-        int diasEnPeriodo = ((int)(temporada / periodo))* dias;
-        System.out.println(diasEnPeriodo + sobran);
-        }
-    //vuelve a leer los datos
-    temporada = sc.nextInt();    
-    periodo = sc.nextInt();
-    dias = sc.nextInt();    }
-    
+    int diasTemporada = sc.nextInt();    
+    int longPeriodo = sc.nextInt();
+    int maxDiasXPeriodo = sc.nextInt();
+    while(!((maxDiasXPeriodo == 0)&&(longPeriodo==0)&&(diasTemporada==0))){
+    //Se garantiza que 1 ≤ maxDiasXPeriodo ≤ longPeriodo ≤ diasTemporada.      
+        int diasEnPeriodo = ((int)(diasTemporada / longPeriodo))* maxDiasXPeriodo;
+        int diasDespDeUltPeriod = diasTemporada % longPeriodo;
+        
+        System.out.println(diasEnPeriodo + diasDespDeUltPeriod);
+//vuelve a leer los datos
+        diasTemporada = sc.nextInt();    
+        longPeriodo = sc.nextInt();
+        maxDiasXPeriodo = sc.nextInt();    
+    }
     }
 }
