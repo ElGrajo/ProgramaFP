@@ -1,0 +1,6 @@
+5
+89.123.45.56 [27/12/2010-16:43:00] "correo.html" HTTP 200 1200 "Mozilla"
+89.123.45.56 [27/12/2010-16:44:02] "pisos.php" HTTP 200 6764 "IExplorer"
+121.12.4.156 [29/01/2011-20:03:01] "portada.html" HTTP 200 2453 "Mozilla"
+87.12.34.56 [30/01/2011-20:03:01] "portada.html" HTTP 200 2453 "Chrome"
+121.12.4.156 [29/01/2011-20:03:01] "noexiste.html" HTTP 404 1450 "Chrome"
