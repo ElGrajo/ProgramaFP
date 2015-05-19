@@ -1,0 +1,14 @@
+Durruti, Buenaventura
+Matemática: 2, 3, 4, 5, 6
+lengua: 3, 4, 5, 6, 7
+filosofia: 4, 5, 6, 6, 7
+
+Guevara de la Serna, Ernesto
+Matemática: 2, 3, 4, 5, 6
+lengua: 3, 4, 5, 6, 7
+filosofia: 4, 5, 6, 6, 7
+
+Marx, Carlos
+Matemática: 2, 3, 4, 5, 6
+lengua: 3, 4, 5, 6, 7
+filosofia: 4, 5, 6, 6, 7

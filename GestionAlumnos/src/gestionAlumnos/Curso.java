@@ -134,9 +134,9 @@ public void imprimrReporte() throws FileNotFoundException{
             System.exit(0);//Si esta línea no está, el archivo escribe.
         }
         
-        PrintWriter salida = new PrintWriter("src/gestionAlumnos/reporte.txt");
-        salida.print(this.reporteTotal());
-        salida.close();
+        try (PrintWriter salida = new PrintWriter("src/gestionAlumnos/reporte.txt")) {
+            salida.print(this.reporteTotal());
+        }
 
 }
 
@@ -145,7 +145,7 @@ public void imprimrReporte() throws FileNotFoundException{
  * evaluacion indicada
  * @param evaluacion 
  */
-public void imprimirPorEvaluacion(int evaluacion) throws FileNotFoundException{
+public void imprimirPorEvaluacion() throws FileNotFoundException{
   File archivo = new File("src/gestionAlumnos/reporte.txt");
   //comprobamos si existe
   if(archivo.exists()){
@@ -155,17 +155,18 @@ public void imprimirPorEvaluacion(int evaluacion) throws FileNotFoundException{
     
   PrintWriter salida = new PrintWriter("src/gestionAlumnos/reporte.txt");
   //Asignaturas
-  salida.print("/t/t");
-    for (int i = 0; i < asignaturas.length; i++) {
-        salida.print("/t"+asignaturas[i]);
+  salida.printf("%45s", asignaturas[0]);
+    for (int i = 1; i < asignaturas.length; i++) {
+        salida.printf("%15s", asignaturas[i]);
     }
-  salida.print("/n");
+  salida.print("\n");
   //cada alumno, notas
     for (int i = 0; i < alumnosMatric.length; i++) {
-        salida.print(alumnosMatric[i].getNombres());
+        salida.printf("%30s", getAlumno(i+1));
         for (int j = 0; j < asignaturas.length; j++) {
-            salida.print("/t"+alumnosMatric[i].getNota(asignaturas[j]));
+            salida.printf("%15s",alumnosMatric[i].getNota(asignaturas[j]));
         }
+        salida.printf("\n");
     }
   salida.close();
   
