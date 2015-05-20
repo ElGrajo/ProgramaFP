@@ -4,7 +4,6 @@
  */
 package consolaENUM;
 
-import javafx.scene.input.KeyCode;
 
 /**
  *
