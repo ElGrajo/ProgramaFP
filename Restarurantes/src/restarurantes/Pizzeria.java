@@ -45,7 +45,8 @@ public class Pizzeria extends Restarurante {
 
     @Override
     public String mostrarInformacion() {
-//llamada a super??
-        return "Pizzeria{" + "trabajadoresPizzeria=" + trabajadoresPizzeria + '}';
+    //llamada a super??
+        return super.mostrarInformacion() + 
+                "\n y es una Pizzeria";
     }   
 }

@@ -19,6 +19,11 @@ public class Restarurantes {
         System.out.println("Total pizzerias: " + Pizzeria.getTotalPizzerias());
         
         Trabajador Marcelo = new Trabajador("Marcelo", 30, "SiempreViva 15");
+        System.out.println(MammaLucia.mostrarInformacion());
+        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
         MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
         
         //Probando el downcasting
@@ -26,6 +31,10 @@ public class Restarurantes {
          Luiggi.darAltaTrabajador(((Pizzeria)Luiggi).getTrabajadoresPizzeria());
         }
        
+        //Recorremos los trabajadores de la pizzeria
+        for (Trabajador trabajador : MammaLucia.getTrabajadoresPizzeria()) {
+            System.out.println(trabajador.getNombre() + " " + trabajador.getEdad());
+        }
         
     }    
 }

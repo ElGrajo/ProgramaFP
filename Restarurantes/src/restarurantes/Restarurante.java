@@ -56,7 +56,10 @@ public class Restarurante {
     }
 
     public String mostrarInformacion() {
-        return "Restarurante{" + "nombre=" + nombre + ", propietario=" + propietario + ", domicilio=" + domicilio + '}';
+        return "Restaurante: " 
+                + "nombre: " + nombre 
+                + ", propietario: " + propietario 
+                + ", domicilio: " + domicilio ;
     }
     
     /**
