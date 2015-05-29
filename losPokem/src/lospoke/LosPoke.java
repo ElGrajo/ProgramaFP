@@ -31,10 +31,10 @@ public class LosPoke {
         misPoke.get(1).ataqueEspecial(misPoke.get(3));
         System.out.println(misPoke.get(3).energia());
         misPoke.get(2).ataqueEspecial(misPoke.get(3));
-/*        System.out.println(MiPika.getEnergiaActual());
-        System.out.println(MiTynamo.getEnergiaActual());
-        MiZy.ataqueEspecial(MiTynamo);
-        System.out.println(MiTynamo.getEnergiaActual());
-        System.out.println(MiZy.energia());*/
+        System.out.println(misPoke.get(3).curarse());
+        System.out.println(misPoke.get(3).energia());
+        misPoke.get(2).ataqueEspecial(misPoke.get(3));
+        System.out.println("La superSerpiente tiene ahora: " + misPoke.get(2).getAtaque());
+        
     }
 }
