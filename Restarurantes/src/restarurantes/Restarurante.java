@@ -12,6 +12,7 @@ public class Restarurante {
     private String nombre;
     private String propietario;
     private String domicilio;
+    protected int maxPorRestaurant = 2;
     protected static int numTrabajadoresTotales;
 
     public Restarurante() {
@@ -67,19 +68,32 @@ public class Restarurante {
      * @param lista ArrayList de trabajadores de pizzeria o chino
      */
     public void meterTrabajador(ArrayList<Trabajador> lista) {
-        Scanner entrada = new Scanner(System.in);
-        System.out.print("Introduzca el nombre del trabajador: ");
-        String nombre = entrada.next();
+        try {
+            Scanner entrada = new Scanner(System.in);
+            String nombre, direccion;
+            int edad;
+            boolean DatosIngresados = false;
+            do{
+            System.out.print("Introduzca el nombre del trabajador: ");
+            nombre = entrada.next();
         //BUFFER?
-        System.out.print("Introduzca la edad del trabajador: ");
-        int edad = entrada.nextInt();
-        System.out.print("Introduzca la dirección del trabajador: ");
+            System.out.print("Introduzca la edad del trabajador: ");
+            edad = entrada.nextInt();
+            System.out.print("Introduzca la dirección del trabajador: ");
         //BUFFER?
-        String direccion = entrada.next();
-        Trabajador trabajadorAux = new Trabajador(nombre, edad, direccion);
-        lista.add(trabajadorAux);
+            direccion = entrada.next();
+            DatosIngresados = true;
+            }while(!DatosIngresados);
+            
+        
+            Trabajador trabajadorAux = new Trabajador(nombre, edad, direccion);
+            lista.add(trabajadorAux);        
         //incrementamos el numero de trabajadores de los restaurantes
-        numTrabajadoresTotales++;
+        numTrabajadoresTotales++; 
+        } catch (Exception e) {
+            System.out.println("El dato insertado no es correcto.");
+        }
+
     }
 
     /**
@@ -90,15 +104,18 @@ public class Restarurante {
      * mas de 5 en el lugar -1
      * ingresado trabajadores 1 
      */
-    public int darAltaTrabajador(ArrayList<Trabajador> trabajadores) {
+    public int darAltaTrabajador(ArrayList<Trabajador> trabajadores) throws Exception {
         int resultado = 1;
         if (numTrabajadoresTotales == 30) {
             resultado = -2;
+            throw new Exception("Se ha alcanzado el límite total de trabajadores");
         } else {
-            if (trabajadores.size() <= 5) {
+            if (trabajadores.size() < maxPorRestaurant) {
                 meterTrabajador(trabajadores);
             } else {
                 resultado = -1;
+                throw new Exception("Se ha alcanzado el límite de trabajadores"
+                        + " del local");
             }
         }
         return resultado;

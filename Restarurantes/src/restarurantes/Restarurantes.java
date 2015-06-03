@@ -11,7 +11,7 @@ public class Restarurantes {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Restarurante Luiggi = new Pizzeria("Luiggi", "Pepe", "Santa EnGracia 12");
         Pizzeria MammaLucia = new Pizzeria("MammaLucia", "Cacho", "Rio 13");
         Chino Bruce_Lee = new Chino("Bruce Lee", "Chung Lee", "Rio 13");
@@ -30,14 +30,18 @@ public class Restarurantes {
             System.out.println(miRestaurant.mostrarInformacion());
         }
         
- 
-        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
-        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
-        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
-        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
-        MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+        try {
+          MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());          
+          MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+          MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+          MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+          MammaLucia.darAltaTrabajador(MammaLucia.getTrabajadoresPizzeria());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         
         //Probando el downcasting
+        
         if(Luiggi instanceof Pizzeria){
          Luiggi.darAltaTrabajador(((Pizzeria)Luiggi).getTrabajadoresPizzeria());
         }
